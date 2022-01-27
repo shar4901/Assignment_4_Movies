@@ -21,7 +21,7 @@
             <br />
 
             <label asp-for="year">Year: </label>
-            <input asp-for="year" type="text" />
+            <input asp-for="year" type="number" min="1900" max="2025" />
             <br />
 
             <label asp-for="director">Director: </label>
@@ -54,8 +54,8 @@
             <br />
 
             <button action="submit">Submit</button>
-
-            <div asp-validation-summary="All"></div>
+            <br />
+            <div  class="font-weight-bold alert-warning" style="font-family:'Baskerville Old Face'; " asp-validation-summary="All"></div>
         </form>
     </div>
 </div>
