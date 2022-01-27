@@ -41,10 +41,17 @@ namespace Assignment_4_Movies.Controllers
         [HttpPost]
         public IActionResult MovieCollection(MovieModel ar)
         {
-            _blahContext.Add(ar);
-            _blahContext.SaveChanges();
+            if (ModelState.IsValid) {
+                _blahContext.Add(ar);
+                _blahContext.SaveChanges();
+                return View("submissionConf", ar);
+            }
+            else  {
+                return View(ar);
+            }
+                
 
-            return View("submissionConf", ar);
+            
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
