@@ -1,5 +1,6 @@
 ﻿using Assignment_4_Movies.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -22,10 +23,14 @@ namespace Assignment_4_Movies.Controllers
         }
 
 
-
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            var movies = _blahContext.Responses
+                .Include(x => x.Category)
+                .OrderBy(x => x.title)
+                .ToList();
+            return View(movies);
         }
 
         public IActionResult Podcasts()
@@ -36,6 +41,7 @@ namespace Assignment_4_Movies.Controllers
         [HttpGet]
         public IActionResult MovieCollection()
         {
+            ViewBag.Categories = _blahContext.Categories.ToList();
             return View();
         }
         [HttpPost]
@@ -47,11 +53,50 @@ namespace Assignment_4_Movies.Controllers
                 return View("submissionConf", ar);
             }
             else  {
+                ViewBag.Categories = _blahContext.Categories.ToList();
                 return View(ar);
-            }
-                
+            }          
+        }
 
-            
+        [HttpGet]
+        public IActionResult Edit(int movieid)
+        {
+            ViewBag.Categories = _blahContext.Categories.ToList();
+
+            var movie = _blahContext.Responses.Single(x => x.movie_id == movieid);
+            return View("MovieCollection", movie);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(MovieModel movie)
+        {
+            if (ModelState.IsValid)
+            {
+            _blahContext.Update(movie);
+            _blahContext.SaveChanges();
+
+            return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.Categories = _blahContext.Categories.ToList();
+                return View();
+            }
+
+        }
+        [HttpGet]
+        public IActionResult Delete(int movieid)
+        {
+            var movie = _blahContext.Responses.Single(x => x.movie_id == movieid);
+            return View(movie);
+        }
+        [HttpPost]
+        public IActionResult Delete(MovieModel movie)
+        {
+            _blahContext.Responses.Remove(movie);
+            _blahContext.SaveChanges();
+
+            return RedirectToAction("Index");
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

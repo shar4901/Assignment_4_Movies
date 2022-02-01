@@ -10,9 +10,7 @@ namespace Assignment_4_Movies.Models
     {
         [Key]
         [Required]
-        public int movid_id { get; set; }
-        [Required]
-        public string category { get; set; }
+        public int movie_id { get; set; }
         [Required]
         public string title { get; set; }
         [Required]
@@ -26,5 +24,10 @@ namespace Assignment_4_Movies.Models
         public string lent_to { get; set; }
         [MaxLength (25)]
         public string notes { get; set; }
+
+        //foreign key
+        [Required]
+        public int category_id { get; set; }
+        public Category Category { get; set; }
     }
 }

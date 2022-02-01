@@ -2,6 +2,7 @@
     ViewData["Title"] = "The Joel Hilton Film Collection";
 }
 
+@model List<MovieModel>
 <div class="container">
     <div class="row">
         <div class="col-sm">
@@ -12,6 +13,45 @@
         <div class="col-sm">
             <img src="~/img/project pic.jpg" />
         </div>
+    </div>
+
+    <div class="row" style="padding: 30px 10px 10px 10px;">
+        <table class="table table-striped table-bordered">
+            <thead style="font-weight:bold">
+                <tr>
+                    <td>Title</td>
+                    <td>Category</td>
+                    <td>Year</td>
+                    <td>Director</td>
+                    <td>Rating</td>
+                    <td>Edited</td>
+                    <td>Lent to</td>
+
+                </tr>
+            </thead>
+            @foreach (var x in Model)
+            {
+        <tr>
+            <td>@x.title</td>
+            <td>@x.category_id</td>
+            <td>@x.year</td>
+            <td>@x.director</td>
+            <td>@x.rating</td>
+            @if (x.edited == true)
+            {
+                <td><span>&#10003;</span></td>
+            }
+            else
+            {
+                <td></td>
+            }
+            <td>@x.lent_to</td>
+            <td><a asp-controller="Home" asp-action="Edit" asp-route-movieid="@x.movie_id">Edit</a></td>
+            <td><a asp-controller="Home" asp-action="Delete" asp-route-movieid="@x.movie_id">Delete</a></td>
+
+        </tr>
+            }
+        </table>
     </div>
 </div>
 <div>

@@ -15,15 +15,23 @@ namespace Assignment_4_Movies.Models
         }
 
         public DbSet<MovieModel> Responses { get; set; }
+        public DbSet<Category> Categories { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder mb)
         {
             //put in sample data here
+            mb.Entity<Category>().HasData(
+                new Category { category_id = 1, category_name = "Comedy" },
+                new Category { category_id = 2, category_name = "Action" },
+                new Category { category_id = 3, category_name = "Romance" }
+                );
+
             mb.Entity<MovieModel>().HasData(
                 new MovieModel
                 {
-                    movid_id = 1,
-                    category = "Comedy",
+                    movie_id = 1,
+                    category_id = 1,
                     title = "Hot Rod",
                     year = 2000,
                     director = "Smartest Man",
@@ -34,8 +42,8 @@ namespace Assignment_4_Movies.Models
                 },
                 new MovieModel
                 {
-                    movid_id = 2,
-                    category = "Rom/Com",
+                    movie_id = 2,
+                    category_id = 2,
                     title = "13 Going On 30",
                     year = 2002,
                     director = "Cute Girl",
@@ -47,8 +55,8 @@ namespace Assignment_4_Movies.Models
 
                 new MovieModel
                 {
-                    movid_id = 3,
-                    category = "Action",
+                    movie_id = 3,
+                    category_id = 3,
                     title = "SpiderMan No Way Home",
                     year = 2021,
                     director = "Russo Brothers",
