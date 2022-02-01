@@ -18,115 +18,115 @@ namespace Assignment_4_Movies.Migrations
 
             modelBuilder.Entity("Assignment_4_Movies.Models.Category", b =>
                 {
-                    b.Property<int>("category_id")
+                    b.Property<int>("Category_id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("category_name")
+                    b.Property<string>("Category_name")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("category_id");
+                    b.HasKey("Category_id");
 
                     b.ToTable("Categories");
 
                     b.HasData(
                         new
                         {
-                            category_id = 1,
-                            category_name = "Comedy"
+                            Category_id = 1,
+                            Category_name = "Comedy"
                         },
                         new
                         {
-                            category_id = 2,
-                            category_name = "Action"
+                            Category_id = 2,
+                            Category_name = "Action"
                         },
                         new
                         {
-                            category_id = 3,
-                            category_name = "Romance"
+                            Category_id = 3,
+                            Category_name = "Romance"
                         });
                 });
 
             modelBuilder.Entity("Assignment_4_Movies.Models.MovieModel", b =>
                 {
-                    b.Property<int>("movie_id")
+                    b.Property<int>("Movie_id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("category_id")
+                    b.Property<int>("Category_id")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("category_id1")
+                    b.Property<int?>("Category_id1")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("director")
+                    b.Property<string>("Director")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("edited")
+                    b.Property<bool>("Edited")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("lent_to")
+                    b.Property<string>("Lent_to")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("notes")
+                    b.Property<string>("Notes")
                         .HasColumnType("TEXT")
                         .HasMaxLength(25);
 
-                    b.Property<string>("rating")
+                    b.Property<string>("Rating")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("title")
+                    b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("year")
+                    b.Property<int>("Year")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("movie_id");
+                    b.HasKey("Movie_id");
 
-                    b.HasIndex("category_id1");
+                    b.HasIndex("Category_id1");
 
                     b.ToTable("Responses");
 
                     b.HasData(
                         new
                         {
-                            movie_id = 1,
-                            category_id = 1,
-                            director = "Smartest Man",
-                            edited = false,
-                            lent_to = "",
-                            notes = "",
-                            rating = "PG",
-                            title = "Hot Rod",
-                            year = 2000
+                            Movie_id = 1,
+                            Category_id = 1,
+                            Director = "Smartest Man",
+                            Edited = false,
+                            Lent_to = "",
+                            Notes = "",
+                            Rating = "PG",
+                            Title = "Hot Rod",
+                            Year = 2000
                         },
                         new
                         {
-                            movie_id = 2,
-                            category_id = 2,
-                            director = "Cute Girl",
-                            edited = true,
-                            lent_to = "",
-                            notes = "",
-                            rating = "G",
-                            title = "13 Going On 30",
-                            year = 2002
+                            Movie_id = 2,
+                            Category_id = 2,
+                            Director = "Cute Girl",
+                            Edited = true,
+                            Lent_to = "",
+                            Notes = "",
+                            Rating = "G",
+                            Title = "13 Going On 30",
+                            Year = 2002
                         },
                         new
                         {
-                            movie_id = 3,
-                            category_id = 3,
-                            director = "Russo Brothers",
-                            edited = false,
-                            lent_to = "",
-                            notes = "",
-                            rating = "PG",
-                            title = "SpiderMan No Way Home",
-                            year = 2021
+                            Movie_id = 3,
+                            Category_id = 3,
+                            Director = "Russo Brothers",
+                            Edited = false,
+                            Lent_to = "",
+                            Notes = "",
+                            Rating = "PG",
+                            Title = "SpiderMan No Way Home",
+                            Year = 2021
                         });
                 });
 
@@ -134,7 +134,7 @@ namespace Assignment_4_Movies.Migrations
                 {
                     b.HasOne("Assignment_4_Movies.Models.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("category_id1");
+                        .HasForeignKey("Category_id1");
                 });
 #pragma warning restore 612, 618
         }

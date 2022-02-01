@@ -11,34 +11,34 @@
     <div class="container">
         <form method="post" display="inline-block">
 
-            <input type="hidden" asp-for="movie_id" />
+            <input type="hidden" asp-for="Movie_id" />
 
-            <label asp-for="title">Title: </label>
-            <input asp-for="title" type="text" />
+            <label asp-for="Title">Title: </label>
+            <input asp-for="Title" type="text" />
 
             <br />
 
-            <label asp-for="year">Year: </label>
-            <input asp-for="year" type="number" min="1900" max="2025" />
+            <label asp-for="Year">Year: </label>
+            <input asp-for="Year" type="number" min="1900" max="2025" />
             <br />
 
-            <label asp-for="director">Director: </label>
-            <input asp-for="director" type="text" />
+            <label asp-for="Director">Director: </label>
+            <input asp-for="Director" type="text" />
             <br />
 
 
-            <label asp-for="category_id">Category: </label>
+            <label asp-for="Category_id">Category: </label>
             <select asp for="category_id">
                 @foreach (Category c in ViewBag.Categories)
                 {
-                    <option value="@c.category_id">@c.category_name</option>
+                    <option value="@c.Category_id">@c.Category_name</option>
                 }
             </select>
             <br />
 
 
-            <label asp-for="rating">Rating: </label>
-            <select asp-for="rating">
+            <label asp-for="Rating">Rating: </label>
+            <select asp-for="Rating">
                 <option value="G">G</option>
                 <option value="PG">PG</option>
                 <option value="PG-13">PG-13</option>
@@ -46,19 +46,19 @@
             </select>
             <br />
 
-            <label asp-for="edited">Edited: </label>
-            <select asp-for="edited">
+            <label asp-for="Edited">Edited: </label>
+            <select asp-for="Edited">
                 <option value="true">Yes</option>
                 <option value="false">No</option>
             </select>
             <br />
 
-            <label asp-for="lent_to">Lent to: </label>
-            <input asp-for="lent_to" type="text" />
+            <label asp-for="Lent_to">Lent to: </label>
+            <input asp-for="Lent_to" type="text" />
             <br />
 
-            <label asp-for="notes">Notes: </label>
-            <input asp-for="notes" type="text" />
+            <label asp-for="Notes">Notes: </label>
+            <input asp-for="Notes" type="text" />
             <br />
 
             <button action="submit">Submit</button>

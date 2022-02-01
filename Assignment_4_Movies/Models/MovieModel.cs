@@ -10,24 +10,24 @@ namespace Assignment_4_Movies.Models
     {
         [Key]
         [Required]
-        public int movie_id { get; set; }
+        public int Movie_id { get; set; }
         [Required]
-        public string title { get; set; }
+        public string Title { get; set; }
         [Required]
-        public int year { get; set; }
+        public int Year { get; set; }
         [Required]
-        public string director { get; set; }
+        public string Director { get; set; }
         [Required]
-        public string rating { get; set; }
+        public string Rating { get; set; }
         [Required]
-        public bool edited { get; set; }
-        public string lent_to { get; set; }
+        public bool Edited { get; set; }
+        public string Lent_to { get; set; }
         [MaxLength (25)]
-        public string notes { get; set; }
+        public string Notes { get; set; }
 
         //foreign key
         [Required]
-        public int category_id { get; set; }
+        public int Category_id { get; set; }
         public Category Category { get; set; }
     }
 }

@@ -7,7 +7,7 @@
 
 <form method="post" asp-controller="Home" asp-action="Delete">
     <h2>Confirm Deletion</h2>
-    <h3>Are you sure you want to remove @Model.title from the collection?</h3>
+    <h3>Are you sure you want to remove @Model.Title from the collection?</h3>
     <div class="row">
         <div class="col">
             <button type="submit" class="btn-danger">Delete</button>
@@ -15,6 +15,6 @@
         <div class="col">
             <a asp-controller="Home" asp-action="Index" class="btn-primary">Cancel</a>
         </div>
-        <input type="hidden" asp-for="movie_id" />
+        <input type="hidden" asp-for="Movie_id" />
     </div>
 </form>

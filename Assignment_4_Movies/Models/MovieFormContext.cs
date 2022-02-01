@@ -22,48 +22,48 @@ namespace Assignment_4_Movies.Models
         {
             //put in sample data here
             mb.Entity<Category>().HasData(
-                new Category { category_id = 1, category_name = "Comedy" },
-                new Category { category_id = 2, category_name = "Action" },
-                new Category { category_id = 3, category_name = "Romance" }
+                new Category { Category_id = 1, Category_name = "Comedy" },
+                new Category { Category_id = 2, Category_name = "Action" },
+                new Category { Category_id = 3, Category_name = "Romance" }
                 );
 
             mb.Entity<MovieModel>().HasData(
                 new MovieModel
                 {
-                    movie_id = 1,
-                    category_id = 1,
-                    title = "Hot Rod",
-                    year = 2000,
-                    director = "Smartest Man",
-                    rating = "PG",
-                    edited = false,
-                    lent_to = "",
-                    notes = ""
+                    Movie_id = 1,
+                    Category_id = 1,
+                    Title = "Hot Rod",
+                    Year = 2000,
+                    Director = "Smartest Man",
+                    Rating = "PG",
+                    Edited = false,
+                    Lent_to = "",
+                    Notes = ""
                 },
                 new MovieModel
                 {
-                    movie_id = 2,
-                    category_id = 2,
-                    title = "13 Going On 30",
-                    year = 2002,
-                    director = "Cute Girl",
-                    rating = "G",
-                    edited = true,
-                    lent_to = "",
-                    notes = ""
+                    Movie_id = 2,
+                    Category_id = 2,
+                    Title = "13 Going On 30",
+                    Year = 2002,
+                    Director = "Cute Girl",
+                    Rating = "G",
+                    Edited = true,
+                    Lent_to = "",
+                    Notes = ""
                 },
 
                 new MovieModel
                 {
-                    movie_id = 3,
-                    category_id = 3,
-                    title = "SpiderMan No Way Home",
-                    year = 2021,
-                    director = "Russo Brothers",
-                    rating = "PG",
-                    edited = false,
-                    lent_to = "",
-                    notes = ""
+                    Movie_id = 3,
+                    Category_id = 3,
+                    Title = "SpiderMan No Way Home",
+                    Year = 2021,
+                    Director = "Russo Brothers",
+                    Rating = "PG",
+                    Edited = false,
+                    Lent_to = "",
+                    Notes = ""
                 }
 
 

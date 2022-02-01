@@ -28,7 +28,7 @@ namespace Assignment_4_Movies.Controllers
         {
             var movies = _blahContext.Responses
                 .Include(x => x.Category)
-                .OrderBy(x => x.title)
+                .OrderBy(x => x.Title)
                 .ToList();
             return View(movies);
         }
@@ -63,7 +63,7 @@ namespace Assignment_4_Movies.Controllers
         {
             ViewBag.Categories = _blahContext.Categories.ToList();
 
-            var movie = _blahContext.Responses.Single(x => x.movie_id == movieid);
+            var movie = _blahContext.Responses.Single(x => x.Movie_id == movieid);
             return View("MovieCollection", movie);
         }
 
@@ -87,7 +87,7 @@ namespace Assignment_4_Movies.Controllers
         [HttpGet]
         public IActionResult Delete(int movieid)
         {
-            var movie = _blahContext.Responses.Single(x => x.movie_id == movieid);
+            var movie = _blahContext.Responses.Single(x => x.Movie_id == movieid);
             return View(movie);
         }
         [HttpPost]
