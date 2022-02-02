@@ -10,8 +10,8 @@ namespace Assignment_4_Movies.Models
     {
         [Key]
         [Required]
-        public int category_id { get; set; }
+        public int CategoryId { get; set; }
         [Required]
-        public string category_name { get; set; }
+        public string Category_name { get; set; }
     }
 }

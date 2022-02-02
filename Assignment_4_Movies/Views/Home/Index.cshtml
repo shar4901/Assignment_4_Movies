@@ -32,12 +32,12 @@
             @foreach (var x in Model)
             {
         <tr>
-            <td>@x.title</td>
-            <td>@x.category_id</td>
-            <td>@x.year</td>
-            <td>@x.director</td>
-            <td>@x.rating</td>
-            @if (x.edited == true)
+            <td>@x.Title</td>
+            <td>@x.Category.Category_name</td>
+            <td>@x.Year</td>
+            <td>@x.Director</td>
+            <td>@x.Rating</td>
+            @if (x.Edited == true)
             {
                 <td><span>&#10003;</span></td>
             }
@@ -45,9 +45,9 @@
             {
                 <td></td>
             }
-            <td>@x.lent_to</td>
-            <td><a asp-controller="Home" asp-action="Edit" asp-route-movieid="@x.movie_id">Edit</a></td>
-            <td><a asp-controller="Home" asp-action="Delete" asp-route-movieid="@x.movie_id">Delete</a></td>
+            <td>@x.Lent_to</td>
+            <td><a asp-controller="Home" asp-action="Edit" asp-route-movieid="@x.MovieId">Edit</a></td>
+            <td><a asp-controller="Home" asp-action="Delete" asp-route-movieid="@x.MovieId">Delete</a></td>
 
         </tr>
             }

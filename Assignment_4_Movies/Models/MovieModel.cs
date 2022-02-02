@@ -10,24 +10,25 @@ namespace Assignment_4_Movies.Models
     {
         [Key]
         [Required]
-        public int movie_id { get; set; }
-        [Required]
-        public string title { get; set; }
-        [Required]
-        public int year { get; set; }
-        [Required]
-        public string director { get; set; }
-        [Required]
-        public string rating { get; set; }
-        [Required]
-        public bool edited { get; set; }
-        public string lent_to { get; set; }
-        [MaxLength (25)]
-        public string notes { get; set; }
+        public int MovieId { get; set; }
+        [Required(ErrorMessage = "Add a valid title")]
+        public string Title { get; set; }
+        [Required(ErrorMessage = "Add a valid year")]
+        [Range(1800, 2100)]
+        public int Year { get; set; }
+        [Required(ErrorMessage = "Add a valid director")]
+        public string Director { get; set; }
+        [Required(ErrorMessage = "Add a valid rating")]
+        public string Rating { get; set; }
+        [Required(ErrorMessage = "Add a valid edited option")]
+        public bool Edited { get; set; }
+        public string Lent_to { get; set; }
+        [MaxLength(25)]
+        public string Notes { get; set; }
 
         //foreign key
-        [Required]
-        public int category_id { get; set; }
+        [Required(ErrorMessage = "Add a valid category")]
+        public int CategoryId { get; set; }
         public Category Category { get; set; }
     }
 }
